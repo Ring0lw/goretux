@@ -1,0 +1,7 @@
+# dear imgui's asserts call abort(): one in a widget takes the whole overlay down, and with it the
+# cleanup that puts the game back. built without them it ignores the odd bad click instead.
+# also under the target's own name: cargo leaves a CXXFLAGS you already export alone, and the cc
+# crate adds the target's flags to yours rather than replacing them
+[env]
+CXXFLAGS = "-DNDEBUG"
+CXXFLAGS_x86_64_unknown_linux_gnu = "-DNDEBUG"
